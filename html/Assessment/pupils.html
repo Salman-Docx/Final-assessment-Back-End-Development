@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pupils - Rishton Academy</title>
+    <link rel="stylesheet" href="new.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="pupils.html">Pupils</a>
+            <a href="teachers.html">Teachers</a>
+            <a href="guardian.html">Guardians</a>
+        </nav>
+    </header>
+    <h1>Pupils Information</h1>
+    <div class="main-content">
+        <form action="index.php" method="post">
+            <input type="hidden" name="form_type" value="pupil">
+            
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="First & Last Name" required><br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Example@gmail.com" required><br>
+
+            <label for="phone">Phone Number:</label>
+            <input type="text" id="phone" name="phone" placeholder="+4400000" maxlength="10" required><br>
+
+            <label for="class">Class:</label>
+            <select id="class" name="class">
+                <option value="Reception Year">Reception Year</option>
+                <option value="Year One">Year One</option>
+                <option value="Year Two">Year Two</option>
+                <option value="Year Three">Year Three</option>
+                <option value="Year Four">Year Four</option>
+                <option value="Year Five">Year Five</option>
+                <option value="Year Six">Year Six</option>
+            </select><br><br>
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    <footer>
+        <p> Thank you for visiting us </p>
+    </footer>
+</body>
+</html>

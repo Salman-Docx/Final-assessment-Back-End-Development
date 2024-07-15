@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Submit Guardian Data</title>
+</head>
+<body>
+    <h2>Guardian Information</h2>
+    <form action="submit.php" method="post">
+        <input type="hidden" name="form_type" value="guardian">
+        Name: <input type="text" name="name" required><br>
+        Email: <input type="email" name="email"><br>
+        Phone: <input type="text" name="phone" required><br>
+        Relation to Pupil: <input type="text" name="pupil_relation"><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
