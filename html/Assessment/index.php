@@ -1,23 +1,23 @@
 <?php
 $servername = "localhost"; 
-$username = " root";        
-$password = "password " ;           
-$dbname = "school_db" ;    
+$username = "root";        
+$password = "password";           
+$dbname = "Rishton";    
 
-$conn = new mysqli( $servername , $username, $password , $dbname) ;
+$conn = new mysqli ( $servername , $username, $password , $dbname ) ;
 
-if ($conn->connect_error) {
+if ( $conn->connect_error)  {
     die("Connection failed: " . $conn->connect_error ) ;
 }
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
     
     $name = htmlspecialchars($_POST["name"]);
     $email = htmlspecialchars($_POST["email"]);
     $phone = htmlspecialchars($_POST["phone"]);
 
-    if ($_POST["form_type"] === "pupil") {
-        $class = htmlspecialchars($_POST["class"]);
+    if ($_POST["form_type"] === "pupil" ) {
+        $class = htmlspecialchars($_POST[ "class"]);
 
         $stmt = $conn->prepare("INSERT INTO pupils (name, email, phone, class) VALUES (?, ?, ?, ?)");
         $stmt->bind_param("ssss", $name, $email, $phone, $class);
