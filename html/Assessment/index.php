@@ -7,14 +7,14 @@ $dbname = "Rishton";
 $conn = new mysqli ( $servername , $username, $password , $dbname ) ;
 
 if ( $conn->connect_error)  {
-    die("Connection failed: " . $conn->connect_error ) ;
+    die("Connection failed: "  . $conn->connect_error ) ;
 }
 
-if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
+if ($_SERVER["REQUEST_METHOD"]  == "POST" ) {
     
-    $name = htmlspecialchars($_POST["name"]);
-    $email = htmlspecialchars($_POST["email"]);
-    $phone = htmlspecialchars($_POST["phone"]);
+    $name = htmlspecialchars($_POST["name"]) ;
+    $email = htmlspecialchars($_POST["email"]) ;
+    $phone = htmlspecialchars($_POST["phone"]) ;
 
     if ($_POST["form_type"] === "pupil" ) {
         $class = htmlspecialchars($_POST[ "class"]);
