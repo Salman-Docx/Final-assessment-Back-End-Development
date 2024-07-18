@@ -18,9 +18,10 @@ if ($_SERVER["REQUEST_METHOD"]  == "POST" ) {
 
     if ($_POST["form_type"] === "pupil" ) {
         $class = htmlspecialchars($_POST[ "class"]);
+        $guardian_id = htmlspecialchars($_POST[ "guardian_id"]);
 
-        $stmt = $conn->prepare("INSERT INTO pupils (name, email, phone, class) VALUES (?, ?, ?, ?)");
-        $stmt->bind_param("ssss", $name, $email, $phone, $class);
+        $stmt = $conn->prepare("INSERT INTO pupils (name, email, phone, class, guardian_id) VALUES (?, ?, ?, ?,?)");
+        $stmt->bind_param("sssss", $name, $email, $phone, $class, $guardian_id);
 
     } elseif ($_POST["form_type"] === "teacher") {
         $address = htmlspecialchars($_POST["address"]);
@@ -31,9 +32,10 @@ if ($_SERVER["REQUEST_METHOD"]  == "POST" ) {
 
     } elseif ($_POST["form_type"] === "guardian") {
         $pupil_relation = htmlspecialchars($_POST["pupil_relation"]);
+        $pupil_id = htmlspecialchars($_POST["pupil_id"]);
 
-        $stmt = $conn->prepare("INSERT INTO guardians (name, email, phone, pupil_relation) VALUES (?, ?, ?, ?)");
-        $stmt->bind_param("ssss", $name, $email, $phone, $pupil_relation);
+        $stmt = $conn->prepare("INSERT INTO guardians (name, email, phone, pupil_relation, pupil_id) VALUES (?, ?, ?, ?, ?)");
+        $stmt->bind_param("sssss", $name, $email, $phone, $pupil_relation, $pupil_id);
     }
 
     if ($stmt->execute()) {
@@ -43,6 +45,7 @@ if ($_SERVER["REQUEST_METHOD"]  == "POST" ) {
         echo "<p>Phone: $phone</p>";
         if ($_POST["form_type"] === "pupil") {
             echo "<p>Class: $class</p>";
+            echo "<p>Guardian ID: $guardian_id</p>";
         } 
         elseif ($_POST["form_type"] === "teacher") {
             echo " <p>Address: $address</p>";
@@ -50,6 +53,7 @@ if ($_SERVER["REQUEST_METHOD"]  == "POST" ) {
         } 
         elseif ($_POST["form_type"] === "guardian") {
             echo "<p>Relation to Pupil: $pupil_relation</p>";
+            echo "<p> Pupil ID: $pupil_id</p>";
         }
     } else {
         echo "Error : " . $stmt->error;
